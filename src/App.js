@@ -140,7 +140,7 @@ function App() {
         </div>
       </header>
       <main>
-        <table>
+        <table >
           <thead>
             <tr>
               <th>slug</th>

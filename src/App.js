@@ -8,7 +8,7 @@ import { convertToFilterFormat } from "./helper";
 function App() {
   const [tableData, setTableData] = useState([]);
   const [filteredTableData, setFilteredTableData] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(true);
   const [filtersOptions, setFiltersOptions] = useState({
     slug: [],
     b_name: [],
@@ -33,6 +33,7 @@ function App() {
     extractFilterOptionsFromTableData(resultData, "", true);
     setTableData(resultData);
     setFilteredTableData(resultData);
+    setIsLoading(false);
   };
   const updateFilteredTableData = (selectedOptions, filterName) => {
     const filteredTableData = tableData
@@ -112,6 +113,7 @@ function App() {
     setSelectedOptions(newSelectedOptions);
     updateFilteredTableData(newSelectedOptions, filterName);
   };
+  if (isLoading) return <h2>Loading....</h2>;
 
   return (
     <div className="app">
